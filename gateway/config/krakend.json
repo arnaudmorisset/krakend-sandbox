@@ -14,12 +14,31 @@
       "catalog": [
         "grpc_catalog/proto.pb"
       ]
+    },
+    "auth/api-keys": {
+      "strategy": "header",
+      "identifier": "x-api-key",
+      "keys": [
+        {
+          "key": "2eca772b-2fcd-4c3f-b487-837d0a218a97",
+          "roles": [
+            "user"
+          ]
+        }
+      ]
     }
   },
   "endpoints": [
     {
       "@comment": "SayHello from Greeter Service",
       "endpoint": "/greeting",
+      "extra_config": {
+        "auth/api-keys": {
+          "roles": [
+            "user"
+          ]
+        }
+      },
       "backend": [
         {
           "host": [
