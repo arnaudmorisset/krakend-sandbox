@@ -1,0 +1,17 @@
+version: "3"
+services:
+  gateway:
+    image: krakend/krakend-ee:2.3-watch
+    volumes:
+      - ./gateway/config:/etc/krakend
+    ports:
+      - "1234:1234"
+      - "8080:8080"
+      - "8090:8090"
+    command: ["run", "-d", "-c", "krakend.json"]
+    depends_on:
+      - greeter
+  greeter:
+    image: greeter:latest
+    ports:
+      - "50051:50051"

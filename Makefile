@@ -3,7 +3,7 @@
 proto:
 	@protoc --go_out=./greeter/ --go_opt=paths=source_relative \
 					--go-grpc_out=./greeter/ --go-grpc_opt=paths=source_relative \
-					--descriptor_set_out=./proto/proto.pb \
+					--descriptor_set_out=./gateway/grpcatalog/proto.pb \
 					--include_source_info --include_imports \
 					-I. proto/greeter.proto
 

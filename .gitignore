@@ -1,2 +1,3 @@
 greeter/proto
-proto/proto.pb
+gateway/config/grpc_catalog/proto.pb
+gateway/config/LICENSE

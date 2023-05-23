@@ -1,0 +1,41 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "KrakenD Enterprise Sandbox",
+  "port": 8080,
+  "host": [
+    "greeter:50051"
+  ],
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "debug_endpoint": true,
+  "extra_config": {
+    "grpc": {
+      "catalog": [
+        "grpc_catalog/proto.pb"
+      ]
+    }
+  },
+  "endpoints": [
+    {
+      "@comment": "SayHello from Greeter Service",
+      "endpoint": "/greeting",
+      "backend": [
+        {
+          "host": [
+            "greeter:50051"
+          ],
+          "url_pattern": "/greeter.Greeter/SayHello",
+          "extra_config": {
+            "backend/grpc": {
+              "output_duration_as_string": true,
+              "output_timestamp_as_string": true,
+              "output_enum_as_string": true,
+              "use_request_body": true
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
