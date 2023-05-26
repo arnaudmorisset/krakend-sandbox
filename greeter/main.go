@@ -9,13 +9,31 @@ import (
 	"google.golang.org/grpc"
 )
 
-type server struct {
+type greeterService struct {
 	pb.UnimplementedGreeterServer
 }
 
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
+func (s *greeterService) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
 	log.Printf("received: %v", in.GetName())
 	return &pb.HelloResponse{Message: "Hello " + in.GetName()}, nil
+}
+
+type userService struct {
+	pb.UnimplementedUserServer
+}
+
+func (s *userService) GetUser(ctx context.Context, in *pb.GetUserRequest) (*pb.GetUserResponse, error) {
+	log.Printf("user_service: received request for id: %v", in.GetId())
+	return &pb.GetUserResponse{Name: "Arnaud"}, nil
+}
+
+type profileService struct {
+	pb.UnimplementedProfileServer
+}
+
+func (s *profileService) GetProfile(ctx context.Context, in *pb.GetProfileRequest) (*pb.GetProfileResponse, error) {
+	log.Printf("profile_service: received request for id: %v", in.GetId())
+	return &pb.GetProfileResponse{JobTitle: "Software Engineer", Age: 29}, nil
 }
 
 func main() {
@@ -26,7 +44,9 @@ func main() {
 
 	opts := grpc.MaxRecvMsgSize(577659245)
 	s := grpc.NewServer(opts)
-	pb.RegisterGreeterServer(s, &server{})
+	pb.RegisterGreeterServer(s, &greeterService{})
+	pb.RegisterUserServer(s, &userService{})
+	pb.RegisterProfileServer(s, &profileService{})
 	log.Printf("server listening at %v", l.Addr())
 	if err := s.Serve(l); err != nil {
 		log.Fatalf("failed to serve: %v", err)
