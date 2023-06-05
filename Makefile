@@ -27,3 +27,6 @@ grpcurl-profile:
 					 -import-path ./proto -proto greeter.proto \
 					 -d '{"id": "1"}' \
 					 localhost:50051 greeter.Profile/GetProfile
+
+start:
+	@docker-compose up
