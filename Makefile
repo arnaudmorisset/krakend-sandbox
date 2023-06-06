@@ -10,6 +10,9 @@ proto:
 build:
 	@docker build -t greeter -f ./greeter/Dockerfile ./greeter
 
+start:
+	@docker-compose up
+
 grpcurl-greeter:
 	@grpcurl -plaintext \
 					 -import-path ./proto -proto greeter.proto \
@@ -28,5 +31,5 @@ grpcurl-profile:
 					 -d '{"id": "1"}' \
 					 localhost:50051 greeter.Profile/GetProfile
 
-start:
-	@docker-compose up
+curl-users:
+	@curl -X GET "localhost:8080/users/1"
