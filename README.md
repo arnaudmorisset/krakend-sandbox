@@ -12,7 +12,7 @@ This repository expose the following features from KrakenD:
 - REST to gRPC transcoding and proxying
 - Key-based authorization
 - Backend For Frontend aggregating values from two different services
-- Input mapping from URL to gRPC body (see [Known Issues](#known-issues))
+- Input mapping from URL to gRPC body
 
 ## Installation
 
@@ -38,8 +38,3 @@ make grpcurl-user
 make grpcurl-profile
 make curl-users
 ```
-
-## Known Issues
-
-The `make curl-users` command will fail.
-For a yet-to-be-discovered reason, my KrakenD configuration failed at injecting a URL parameter into a gRPC body.
