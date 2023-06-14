@@ -4,7 +4,7 @@ COPY . .
 RUN go build
 
 FROM debian:stable-slim
-COPY --from=build . .
 WORKDIR /app
+COPY --from=build /app/greeter ./
 EXPOSE 50051 50051
 CMD ["./greeter"]

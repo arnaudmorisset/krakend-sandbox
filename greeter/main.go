@@ -46,6 +46,14 @@ func (s *profileService) GetProfile(ctx context.Context, in *pb.GetProfileReques
 	return &pb.GetProfileResponse{JobTitle: "Software Engineer", Age: 29}, nil
 }
 
+type recurseService struct {
+	pb.UnimplementedRecurseServer
+}
+
+func (s *recurseService) GetRecursiveData(ctx context.Context, in *pb.GetRecursiveDataRequest) (*pb.GetRecursiveDataResponse, error) {
+	return &pb.GetRecursiveDataResponse{Resp: &pb.RecursiveDataStruct{Id: "1", Parent: &pb.RecursiveDataStruct{Id: "2"}}}, nil
+}
+
 func main() {
 	l, err := net.Listen("tcp", ":50051")
 	if err != nil {
@@ -54,9 +62,12 @@ func main() {
 
 	opts := grpc.MaxRecvMsgSize(577659245)
 	s := grpc.NewServer(opts)
+
 	pb.RegisterGreeterServer(s, &greeterService{})
 	pb.RegisterUserServer(s, &userService{})
 	pb.RegisterProfileServer(s, &profileService{})
+	pb.RegisterRecurseServer(s, &recurseService{})
+
 	log.Printf("server listening at %v", l.Addr())
 	if err := s.Serve(l); err != nil {
 		log.Fatalf("failed to serve: %v", err)

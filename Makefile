@@ -31,5 +31,13 @@ grpcurl-profile:
 					 -d '{"id": "1"}' \
 					 localhost:50051 greeter.Profile/GetProfile
 
+grpcurl-recurse:
+	@grpcurl -plaintext \
+					 -import-path ./proto -proto greeter.proto \
+					 localhost:50051 greeter.Recurse/GetRecursiveData
+
 curl-users:
 	@curl -X GET "localhost:8080/users/1"
+
+curl-recurse:
+	@curl -X GET "localhost:8080/recurse"

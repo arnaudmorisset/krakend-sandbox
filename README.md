@@ -38,3 +38,11 @@ make grpcurl-user
 make grpcurl-profile
 make curl-users
 ```
+
+## Known Issue
+
+### Unable to parse recursive protobuf data structure
+
+As of today, the gateway cannot start due to the `RecursiveDataStructure` we can found in the proto definition file.
+KrakenD have a bug making the gateway crash when starting due to an issue in the way it wrap proto data structures, making circular relations unaivailable.
+Check the proto file (Recurse Service) and try to start the gateway to see by yourself.

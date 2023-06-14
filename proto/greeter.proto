@@ -32,3 +32,16 @@ message GetProfileResponse {
   string jobTitle = 1;
   uint32 age = 2;
 }
+
+service Recurse {
+  rpc GetRecursiveData(GetRecursiveDataRequest)
+      returns (GetRecursiveDataResponse) {}
+}
+
+message GetRecursiveDataRequest {}
+message GetRecursiveDataResponse { RecursiveDataStruct resp = 1; }
+
+message RecursiveDataStruct {
+  string id = 1;
+  RecursiveDataStruct parent = 2;
+}
