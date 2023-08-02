@@ -13,6 +13,7 @@ This repository expose the following features from KrakenD:
 - Key-based authorization
 - Backend For Frontend aggregating values from two different services
 - Input mapping from URL to gRPC body
+- OpenAPI doc generation with SwaggerUI served by KrakenD
 
 ## Installation
 

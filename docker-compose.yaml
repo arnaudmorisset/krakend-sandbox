@@ -11,7 +11,13 @@ services:
       - "1234:1234"
       - "8080:8080"
       - "8090:8090"
-    command: ["run", "-d", "-c", "krakend.tmpl"]
+      - "15000:15000"
+    command:
+      [
+        sh,
+        -c,
+        "krakend openapi export -c krakend.tmpl -o openapi.json && krakend openapi serve -s openapi.json",
+      ]
     depends_on:
       - greeter
   greeter:

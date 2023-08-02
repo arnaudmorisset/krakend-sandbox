@@ -1,0 +1,107 @@
+{
+	"components": {
+		"securitySchemes": {
+			"KrakenD-ApiKeys": {
+				"in": "header",
+				"name": "x-api-key",
+				"type": "apiKey"
+			}
+		}
+	},
+	"info": {
+		"contact": {
+			"email": "contact@fakemail.com",
+			"name": "Arnaud Morisset"
+		},
+		"license": {
+			"name": "MIT"
+		},
+		"title": "KrakenD Enterprise API Gateway - Sandbox",
+		"version": "1"
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/greeting": {
+			"get": {
+				"operationId": "GET/greeting",
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						},
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"security": [
+					{
+						"KrakenD-ApiKeys": []
+					}
+				]
+			}
+		},
+		"/recurse": {
+			"get": {
+				"operationId": "GET/recurse",
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						},
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"security": []
+			}
+		},
+		"/users/{id}": {
+			"get": {
+				"operationId": "GET/users/:id",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						},
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				},
+				"security": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": ""
+		}
+	]
+}
