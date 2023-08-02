@@ -1,0 +1,38 @@
+{
+  "endpoint": "/users/{id}",
+  "method": "GET",
+  "backend": [
+    {
+      "url_pattern": "/greeter.User/GetUser",
+      "host": [
+        "greeter:50051"
+      ],
+      "allow": [
+        "name"
+      ],
+      "extra_config": {
+        "backend/grpc": {
+          "input_mapping": {
+            "Id": "id"
+          }
+        }
+      }
+    },
+    {
+      "url_pattern": "/greeter.Profile/GetProfile",
+      "host": [
+        "greeter:50051"
+      ],
+      "allow": [
+        "jobTitle"
+      ],
+      "extra_config": {
+        "backend/grpc": {
+          "input_mapping": {
+            "Id": "id"
+          }
+        }
+      }
+    }
+  ]
+}

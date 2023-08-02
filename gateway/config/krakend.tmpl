@@ -1,0 +1,44 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "KrakenD Enterprise API Gateway - Sandbox",
+  "port": 8080,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "debug_endpoint": true,
+  "extra_config": {
+    "grpc": {
+      "catalog": [
+        "grpc_catalog/proto.pb"
+      ]
+    },
+    "auth/api-keys": {
+      "strategy": "header",
+      "identifier": "x-api-key",
+      "keys": [
+        {
+          "key": "2eca772b-2fcd-4c3f-b487-837d0a218a97",
+          "roles": [
+            "user"
+          ]
+        }
+      ]
+    },
+    "documentation/openapi": {
+      "version": "1",
+      "contact_name": "Arnaud Morisset",
+      "contact_email": "contact@fakemail.com",
+      "license_name": "MIT"
+    },
+    "router": {
+      "return_error_msg": true,
+      "hide_version_header": true
+    }
+  },
+  "endpoints": [
+    {{ template "basic_endpoint.tmpl" . }},
+    {{ template "user_endpoint.tmpl" . }},
+    {{ template "recurse_endpoint.tmpl" . }}
+  ],
+  "sequential_start": true
+}

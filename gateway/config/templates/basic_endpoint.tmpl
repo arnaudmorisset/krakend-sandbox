@@ -1,0 +1,27 @@
+{
+  "@comment": "SayHello from Greeter Service",
+  "endpoint": "/greeting",
+  "extra_config": {
+    "auth/api-keys": {
+      "roles": [
+        "user"
+      ]
+    }
+  },
+  "backend": [
+    {
+      "host": [
+        "greeter:50051"
+      ],
+      "url_pattern": "/greeter.Greeter/SayHello",
+      "extra_config": {
+        "backend/grpc": {
+          "output_duration_as_string": true,
+          "output_timestamp_as_string": true,
+          "output_enum_as_string": true,
+          "use_request_body": true
+        }
+      }
+    }
+  ]
+}

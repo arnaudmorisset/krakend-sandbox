@@ -1,0 +1,13 @@
+{
+  "endpoint": "/recurse",
+  "method": "GET",
+  "backend": [
+    {
+      "host": ["greeter:50051"],
+      "url_pattern": "/greeter.Recurse/GetRecursiveData",
+      "extra_config": {
+        "backend/grpc": {}
+      }
+    }
+  ]
+}
