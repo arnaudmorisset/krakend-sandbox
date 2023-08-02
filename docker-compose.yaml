@@ -1,7 +1,7 @@
 version: "3"
 services:
   gateway:
-    image: krakend/krakend-ee:2.3.1-watch
+    image: krakend/krakend-ee:2.3.3-watch
     volumes:
       - ./gateway/config:/etc/krakend
     ports:
