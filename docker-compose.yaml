@@ -1,7 +1,7 @@
 version: "3"
 services:
   gateway:
-    image: krakend/krakend-ee:alpha-33905b2
+    image: krakend/krakend-ee:2.4.1
     environment:
       - FC_ENABLE=1
       - FC_TEMPLATES=/etc/krakend/templates

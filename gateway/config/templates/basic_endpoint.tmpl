@@ -24,7 +24,19 @@
         "documentation/openapi": {
           "description": "Basic endpoint to test HTTP to gRPC proxying",
           "summary": "Simple test",
-          "example": {}
+          "response_definition": {
+            "200": {
+              "example_schema": "{{ `{
+                "type": "object",
+                "title": "This is the response",
+                "properties": {
+                  "foo": {
+                    "type": "string",
+                  }
+                }
+              }` | b64enc }}"
+            }
+          }
         }
       }
     }
