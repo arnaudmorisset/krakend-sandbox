@@ -24,6 +24,11 @@ git clone https://github.com/arnaudmorisset/krakend-sandbox
 # For ASDF users - Install Go (or get it using your favorite package manager)
 asdf install
 
+# Install Protoc and the relevant Go plugin
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 # Compile proto files
 make proto
 
