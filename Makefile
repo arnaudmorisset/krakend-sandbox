@@ -36,6 +36,9 @@ grpcurl-recurse:
 					 -import-path ./proto -proto greeter.proto \
 					 localhost:50051 greeter.Recurse/GetRecursiveData
 
+curl-greeter:
+	@curl -X GET "localhost:8080/greeting"
+
 curl-users:
 	@curl -X GET "localhost:8080/users/1"
 
