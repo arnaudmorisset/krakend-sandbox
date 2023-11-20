@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "paths": [],
+    "allow_overwrite": true,
+    "dir_field_prefix": "",
+    "allowed_suffixes": [
+      ".yaml",
+      ".json"
+    ]
+  },
+  "partials": {
+    "paths": []
+  },
+  "templates": {
+    "paths": [
+      "/etc/krakend/templates"
+    ]
+  },
+  "out": "result.json"
+}

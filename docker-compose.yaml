@@ -3,8 +3,7 @@ services:
   gateway:
     image: krakend/krakend-ee:2.4.2
     environment:
-      - FC_ENABLE=1
-      - FC_TEMPLATES=/etc/krakend/templates
+      - FC_CONFIG=/etc/krakend/flexible_config.json
     volumes:
       - ./gateway/config:/etc/krakend
     ports:

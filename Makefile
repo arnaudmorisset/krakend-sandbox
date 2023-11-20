@@ -8,7 +8,7 @@ proto:
 					-I. proto/greeter.proto
 
 build:
-	@docker build -t greeter -f ./greeter/Dockerfile ./greeter
+	@docker build -t greeter -f ./greeter/Dockerfile ./greeter --no-cache
 
 start:
 	@docker-compose up
