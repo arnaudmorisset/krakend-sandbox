@@ -1,0 +1,8 @@
+github.com/krakendio/flatmap v1.1.1 h1:rGBNVpBY0pMk6cLOwerVzoKY4HELnpu0xvqB231lOCQ=
+github.com/krakendio/flatmap v1.1.1/go.mod h1:KBuVkiH5BcBFRa5A1HdSHDn8a8LzsyRTKZArX0vqTbo=
+github.com/luraproject/lura/v2 v2.4.1 h1:nNB2oOwY3Jh6EIp0deZgmtQAZsK6rCVP6Dau201nkYU=
+github.com/luraproject/lura/v2 v2.4.1/go.mod h1:GaJ74BcWX1iqAm2+byZ2tjI710XOEjeSRGEDtvbboUw=
+github.com/valyala/fastrand v1.1.0 h1:f+5HkLW4rsgzdNoleUOB69hyT9IlD2ZQh9GyDMfb5G8=
+github.com/valyala/fastrand v1.1.0/go.mod h1:HWqCzkrkg6QXT8V2EXWvXCoow7vLwOFN002oeRzjapQ=
+golang.org/x/text v0.13.0 h1:ablQoSUd0tRdKxZewP80B+BaqeKJuVhuRxj/dkrun3k=
+golang.org/x/text v0.13.0/go.mod h1:TvPlkZtksWOMsz7fbANvkp4WM8x/WCo/om8BMLbz+aE=

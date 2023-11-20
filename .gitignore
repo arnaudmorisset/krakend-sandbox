@@ -2,3 +2,4 @@ greeter/proto
 gateway/config/grpc_catalog/proto.pb
 gateway/config/LICENSE
 openapi.json
+*.so

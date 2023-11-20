@@ -1,44 +1,15 @@
 {
   "@comment": "SayHello from Greeter Service",
   "endpoint": "/greeting",
-  "extra_config": {
-    "auth/api-keys": {
-      "roles": [
-        "user"
-      ]
-    },
-    "documentation/openapi": {
-      "description": "Basic endpoint to test HTTP to gRPC proxying",
-      "summary": "Simple test",
-      "response_definition": {
-        "200": {
-          "content_type": "application/json",
-          "example_schema": "{{ `{
-            "type": "object",
-            "title": "This is the response",
-            "properties": {
-              "foo": {
-                "type": "string"
-              }
-            }
-          }` | b64enc }}"
-        }
-      }
-    }
-  },
+  "method": "GET",
   "backend": [
     {
+      "url_pattern": "/greeter.Greeter/SayHello",
       "host": [
         "greeter:50051"
       ],
-      "url_pattern": "/greeter.Greeter/SayHello",
       "extra_config": {
-        "backend/grpc": {
-          "output_duration_as_string": true,
-          "output_timestamp_as_string": true,
-          "output_enum_as_string": true,
-          "use_request_body": true
-        }
+        "backend/grpc": {}
       }
     }
   ]

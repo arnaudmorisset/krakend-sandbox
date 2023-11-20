@@ -10,6 +10,11 @@ proto:
 build:
 	@docker build -t greeter -f ./greeter/Dockerfile ./greeter --no-cache
 
+build-hello-plugin:
+	@docker run -it -v "${PWD}/gateway/config/plugins/hello:/app" -w /app \
+		krakend/builder:2.4.2 \
+		go build -buildmode=plugin -o hello-plugin.so .
+
 start:
 	@docker-compose up
 
