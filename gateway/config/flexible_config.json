@@ -2,7 +2,6 @@
   "settings": {
     "paths": [],
     "allow_overwrite": true,
-    "dir_field_prefix": "",
     "allowed_suffixes": [
       ".yaml",
       ".json"

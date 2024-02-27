@@ -43,5 +43,7 @@ make grpcurl-greeter
 make grpcurl-user
 make grpcurl-profile
 make curl-users
+
+# Raise an error at the moment, looks like a bug on KrakenD side.
 make curl-recurse
 ```

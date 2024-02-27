@@ -1,7 +1,7 @@
 version: "3"
 services:
   gateway:
-    image: krakend/krakend-ee:2.4.2
+    image: krakend/krakend-ee:2.5.3
     environment:
       - FC_CONFIG=/etc/krakend/flexible_config.json
     volumes:
@@ -15,7 +15,7 @@ services:
       [
         sh,
         -c,
-        "krakend openapi export -c krakend.tmpl -o openapi.json && krakend openapi serve -s openapi.json",
+        "krakend run -d -c /etc/krakend/krakend.tmpl",
       ]
     depends_on:
       - greeter
