@@ -38,7 +38,8 @@
   "endpoints": [
     {{ template "basic_endpoint.tmpl" . }},
     {{ template "user_endpoint.tmpl" . }},
-    {{ template "recurse_endpoint.tmpl" . }}
+    {{ template "recurse_endpoint.tmpl" . }},
+    {{ template "generic_endpoint.tmpl" . }}
   ],
   "sequential_start": true
 }

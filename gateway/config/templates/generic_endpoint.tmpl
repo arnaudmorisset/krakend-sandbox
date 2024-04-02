@@ -1,0 +1,18 @@
+{
+  "@comment": "GetGenericData from Greeter service",
+  "endpoint": "/generic",
+  "method": "GET",
+  "backend": [
+    {
+      "url_pattern": "/greeter.Generic/GetGenericData",
+      "host": [
+        "greeter:50051"
+      ],
+      "extra_config": {
+        "backend/grpc": {
+          "output_remove_unset_values": true
+        }
+      }
+    }
+  ]
+}

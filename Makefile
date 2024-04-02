@@ -41,6 +41,12 @@ grpcurl-recurse:
 					 -import-path ./proto -proto greeter.proto \
 					 localhost:50051 greeter.Recurse/GetRecursiveData
 
+grpcurl-generic:
+	@grpcurl -plaintext \
+					 -import-path ./proto -proto greeter.proto \
+					 -d '{"data": {"string_value": "1"} }' \
+					 localhost:50051 greeter.Generic/GetGenericData
+
 curl-greeter:
 	@curl -X GET "localhost:8080/greeting"
 
@@ -49,3 +55,7 @@ curl-users:
 
 curl-recurse:
 	@curl -X GET "localhost:8080/recurse"
+
+curl-generic:
+	@curl -X GET "localhost:8080/generic" \
+		-d '{"data": {"string_value": "1"} }'

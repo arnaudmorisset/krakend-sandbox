@@ -54,6 +54,14 @@ func (s *recurseService) GetRecursiveData(ctx context.Context, in *pb.GetRecursi
 	return &pb.GetRecursiveDataResponse{Resp: &pb.RecursiveDataStruct{Id: "1", Parent: &pb.RecursiveDataStruct{Id: "2"}}}, nil
 }
 
+type genericService struct {
+	pb.UnimplementedGenericServer
+}
+
+func (s *genericService) GetGenericData(ctx context.Context, in *pb.GetGenericDataRequest) (*pb.GetGenericDataResponse, error) {
+	return &pb.GetGenericDataResponse{Data: &pb.Value{Kind: &pb.Value_StringValue{StringValue: "Hello Arnaud!"}}}, nil
+}
+
 func main() {
 	l, err := net.Listen("tcp", ":50051")
 	if err != nil {
@@ -67,6 +75,7 @@ func main() {
 	pb.RegisterUserServer(s, &userService{})
 	pb.RegisterProfileServer(s, &profileService{})
 	pb.RegisterRecurseServer(s, &recurseService{})
+	pb.RegisterGenericServer(s, &genericService{})
 
 	log.Printf("server listening at %v", l.Addr())
 	if err := s.Serve(l); err != nil {
